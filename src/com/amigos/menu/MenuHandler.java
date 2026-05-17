@@ -24,11 +24,20 @@ public class MenuHandler {
             String menu = scanner.nextLine();
 
             switch (menu) {
-                case "1" -> BookingService.newbooking();
+                case "1" -> {
+                    BookingService.newbooking();
+                    sleep(3000);
+                }
 
-                case "2" -> BookingService.deleteCarBooking();
+                case "2" -> {
+                    BookingService.deleteCarBooking();
+                    sleep(3000);
+                }
 
-                case "3" -> BookingService.viewAllBookedCars();
+                case "3" -> {
+                    BookingService.viewAllBookedCars();
+                    sleep(3000);
+                }
 
                 case "4" -> {
                     viewAllBookings();
