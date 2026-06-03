@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="52face91-7615-4fc2-87b8-93e6bc2faab9" name="Changes" comment="Core Java First Phase Project." />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="19" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/../.." value="main" />
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;SumenBiswas&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:SumenBiswas/car-booking-system.git&quot;,
+    &quot;accountId&quot;: &quot;ab4d9f1a-681b-4323-bc75-34fc5dff6db9&quot;
+  }
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/Main.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/com/amigos/menu/MenuHandler.java" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.2736500969830142" />
+      <entry key="MS500" value="3.0837496869482535" />
+      <entry key="S2" value="6.320703271536266" />
+      <entry key="S5" value="7.781497675295085" />
+      <entry key="S10" value="9.117772579562534" />
+      <entry key="S30" value="20.76099882785698" />
+      <entry key="S60" value="41.59962420899854" />
+      <entry key="M2" value="82.47908331840686" />
+      <entry key="M5" value="179.0139763420999" />
+      <entry key="M10" value="264.3179440202978" />
+      <entry key="M15" value="307.807882977013" />
+      <entry key="M30" value="363.25372404901236" />
+      <entry key="H1" value="396.7534956060207" />
+      <entry key="H2" value="415.2345437080262" />
+      <entry key="H4" value="424.9501180135986" />
+      <entry key="D1" value="433.3012186420048" />
+      <entry key="W1" value="434.7567262621807" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="4.143009193348445E-74" />
+      <entry key="S2" value="4.511583236296376E-19" />
+      <entry key="S5" value="4.589530097287065E-8" />
+      <entry key="S10" value="2.1619035772729264E-4" />
+      <entry key="S30" value="0.0723656299100325" />
+      <entry key="S60" value="0.3567196883060424" />
+      <entry key="M2" value="0.8421020965889285" />
+      <entry key="M5" value="1.5756431196324023" />
+      <entry key="M10" value="2.0911927874567953" />
+      <entry key="M15" value="2.3346871626957966" />
+      <entry key="M30" value="2.63216618828257" />
+      <entry key="H1" value="2.8060738614031835" />
+      <entry key="H2" value="2.9003631877003717" />
+      <entry key="H4" value="2.949490368998572" />
+      <entry key="D1" value="2.9914837236194836" />
+      <entry key="W1" value="2.9987809624205197" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="1.2369084538317974" />
+      <entry key="MS500" value="3.0666476192234047" />
+      <entry key="S2" value="6.310766097512596" />
+      <entry key="S5" value="7.7763488520381765" />
+      <entry key="S10" value="9.11196693252989" />
+      <entry key="S30" value="20.81053733908492" />
+      <entry key="S60" value="41.92677263666277" />
+      <entry key="M2" value="83.29319767161078" />
+      <entry key="M5" value="180.5609535611542" />
+      <entry key="M10" value="266.38113976368476" />
+      <entry key="M15" value="310.11808586913395" />
+      <entry key="M30" value="365.8694955465556" />
+      <entry key="H1" value="399.5500178704744" />
+      <entry key="H2" value="418.1297436622885" />
+      <entry key="H4" value="427.896923103346" />
+      <entry key="D1" value="436.29223980864384" />
+      <entry key="W1" value="437.7554407691898" />
+    </decayedShown>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3DXyH6jH65l7Zmt2mMkcN8SRcZ3" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Application.Main.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/user/java-space/project/car-booking-system",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "/home/user/java-space/project/car-booking-system/src/Main.java",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="car-booking-system" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-37e91769500f-intellij.indexing.shared.core-IU-261.24374.151" />
+        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-IU-261.24374.151" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="52face91-7615-4fc2-87b8-93e6bc2faab9" name="Changes" comment="" />
+      <created>1778442620754</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1778442620754</updated>
+      <workItem from="1778879597551" duration="1508000" />
+      <workItem from="1779034875858" duration="1416000" />
+      <workItem from="1779038129053" duration="1984000" />
+      <workItem from="1779046816202" duration="1715000" />
+      <workItem from="1779048585534" duration="1069000" />
+      <workItem from="1780498738231" duration="1987000" />
+    </task>
+    <task id="LOCAL-00001" summary="Core Java First Phase Project.">
+      <option name="closed" value="true" />
+      <created>1778880010837</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1778880010838</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Core Java First Phase Project.">
+      <option name="closed" value="true" />
+      <created>1779049036693</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1779049036693</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/../.." />
+    </ignored-roots>
+    <MESSAGE value="Core Java First Phase Project." />
+    <option name="LAST_COMMIT_MESSAGE" value="Core Java First Phase Project." />
+  </component>
+</project>
