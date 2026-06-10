@@ -1,4 +1,4 @@
-package com.amigos.model;
+package com.amigos.user;
 
 import java.util.UUID;
 

@@ -1,4 +1,4 @@
-package com.amigos.model;
+package com.amigos.car;
 
 import java.math.BigDecimal;
 import java.util.UUID;

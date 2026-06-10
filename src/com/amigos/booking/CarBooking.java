@@ -1,4 +1,7 @@
-package com.amigos.model;
+package com.amigos.booking;
+
+import com.amigos.car.Car;
+import com.amigos.user.User;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

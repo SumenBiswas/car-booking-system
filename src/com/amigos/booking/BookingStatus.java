@@ -1,4 +1,4 @@
-package com.amigos.model;
+package com.amigos.booking;
 
 public enum BookingStatus {
     ACTIVE,

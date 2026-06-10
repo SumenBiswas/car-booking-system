@@ -1,4 +1,4 @@
-package com.amigos.model;
+package com.amigos.car;
 
 public enum Brand {
     AUDI,
