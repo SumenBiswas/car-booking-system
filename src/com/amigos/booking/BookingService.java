@@ -199,12 +199,13 @@ public class BookingService {
         System.out.println("============================== Bookings by User ( " + userName +" ) ==============================");
         for (int i = 0; i < bookingCount; i++) {
             CarBooking booking = bookings[i];
-            System.out.println("Booking Status :: " + booking.getBookingStatus());
+
             if(booking.getUser().getId().equals(userUUID) && booking.getBookingStatus() == BookingStatus.ACTIVE){
                 Car car = booking.getCar();
                 System.out.printf("Booking Id: %s | Car: %s | Brand: %s | Status: %s%n | Start date: %s | End date: %s | Car Id: %s",
                         booking.getId().toString(), booking.getCar().getRegNumber(), booking.getCar().getBrand(), booking.getBookingStatus(),
                         booking.getStartDate(), booking.getEndDate(), car.getId().toString());
+                System.out.println("");
             }
         }
     }

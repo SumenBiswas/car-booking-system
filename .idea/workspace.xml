@@ -5,24 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52face91-7615-4fc2-87b8-93e6bc2faab9" name="Changes" comment="Initial Commit: Removed unused code and updated code.">
-      <change afterPath="$PROJECT_DIR$/src/com/amigos/Util/DateUtility.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/amigos/booking/BookingDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/amigos/car/CarDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/amigos/car/CarService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/amigos/user/UserDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/amigos/user/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/amigos/data/DataStore.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/amigos/menu/MenuHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/amigos/menu/MenuHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/amigos/model/BookingStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/amigos/booking/BookingStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/amigos/model/Brand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/amigos/car/Brand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/amigos/model/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/amigos/car/Car.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/amigos/model/CarBooking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/amigos/booking/CarBooking.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/amigos/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/amigos/user/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/amigos/service/BookingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/amigos/booking/BookingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/amigos/service/CarService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/amigos/service/UserService.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -217,7 +200,8 @@
       <workItem from="1780935656824" duration="4669000" />
       <workItem from="1781020461556" duration="10673000" />
       <workItem from="1781037379261" duration="1737000" />
-      <workItem from="1781106853760" duration="12437000" />
+      <workItem from="1781106853760" duration="12489000" />
+      <workItem from="1781196199222" duration="787000" />
     </task>
     <task id="LOCAL-00001" summary="Core Java First Phase Project.">
       <option name="closed" value="true" />
@@ -235,7 +219,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779049036693</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Initial Commit: Removed unused code and updated code.">
+      <option name="closed" value="true" />
+      <created>1781123404691</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1781123404691</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
