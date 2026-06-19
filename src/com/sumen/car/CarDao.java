@@ -1,4 +1,4 @@
-package com.amigos.car;
+package com.sumen.car;
 
 import java.math.BigDecimal;
 import java.util.UUID;
@@ -6,7 +6,7 @@ import java.util.UUID;
 
 public class CarDao {
     private static Car[] cars = new Car[50];
-    private static int carCount=0;
+    private static int carCount = 0;
 
     public CarDao() {
         System.out.println("Car Dao is created");
@@ -16,12 +16,14 @@ public class CarDao {
         cars[carCount++] = car;
     }
 
-    public int getCarCount() {return carCount;}
+    public int getCarCount() {
+        return carCount;
+    }
 
 
     public Car findById(UUID carId) {
         for (int i = 0; i < carCount; i++) {
-            if(cars[i].getId().equals(carId)){
+            if (cars[i].getId().equals(carId)) {
                 return cars[i];
             }
         }
@@ -30,13 +32,13 @@ public class CarDao {
 
     public Car[] findAll() {
         Car[] tempCars = new Car[carCount];
-        for(int i = 0; i < carCount; i++){
+        for (int i = 0; i < carCount; i++) {
             tempCars[i] = cars[i];
         }
         return tempCars;
     }
 
-    public void loadCars(){
+    public void loadCars() {
         cars[carCount++] = new Car(
                 UUID.randomUUID(),
                 "DXB-1001",

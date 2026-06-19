@@ -1,7 +1,7 @@
-package com.amigos.booking;
+package com.sumen.booking;
 
-import com.amigos.car.Car;
-import com.amigos.user.User;
+import com.sumen.car.Car;
+import com.sumen.user.User;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -19,17 +19,16 @@ public class CarBooking {
     private BookingStatus bookingStatus;
     private LocalDateTime bookedAt;
 
-    public CarBooking(UUID id, Boolean isElectric, User user, Car car, LocalDate startDate, LocalDate endDate, BigDecimal price,
-                      BookingStatus bookingStatus, LocalDateTime bookedAt) {
-        this.id = id;
-        this.isElectric = isElectric;
+    public CarBooking(User user, Car car, LocalDate startDate, LocalDate endDate, BigDecimal price) {
+        this.id = UUID.randomUUID();
+        this.isElectric = car.getElectric();
         this.user = user;
         this.car = car;
         this.startDate = startDate;
         this.endDate = endDate;
         this.price = price;
-        this.bookingStatus = bookingStatus;
-        this.bookedAt = bookedAt;
+        this.bookingStatus = BookingStatus.ACTIVE;
+        this.bookedAt = LocalDateTime.now();
     }
 
     public UUID getId() {

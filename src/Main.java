@@ -1,5 +1,6 @@
-import com.amigos.car.CarService;
-import com.amigos.menu.MenuHandler;
+import com.sumen.car.CarService;
+import com.sumen.presentation.MenuHandler;
+import com.sumen.user.UserService;
 
 import static java.lang.Thread.sleep;
 
@@ -8,9 +9,11 @@ public class Main {
         MenuHandler menuHandler = new MenuHandler();
         try {
             CarService carService = new CarService();
+            UserService userService = new UserService();
             carService.updateCarInventory();
+            userService.addUsers();
             menuHandler.runMenu();
-        }catch (InterruptedException e){
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
 

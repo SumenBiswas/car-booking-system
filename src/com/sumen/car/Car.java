@@ -1,4 +1,4 @@
-package com.amigos.car;
+package com.sumen.car;
 
 import java.math.BigDecimal;
 import java.util.UUID;

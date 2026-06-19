@@ -1,4 +1,4 @@
-package com.amigos.car;
+package com.sumen.car;
 
 public enum Brand {
     AUDI,

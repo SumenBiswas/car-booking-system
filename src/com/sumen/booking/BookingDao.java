@@ -1,4 +1,4 @@
-package com.amigos.booking;
+package com.sumen.booking;
 
 import java.util.UUID;
 
@@ -16,7 +16,7 @@ public class BookingDao {
 
     public CarBooking findById(UUID bookingId) {
         for (int i = 0; i < bookingCount; i++) {
-            if(bookings[i].getId().equals(bookingId)){
+            if (bookings[i].getId().equals(bookingId)) {
                 return bookings[i];
             }
         }
@@ -26,7 +26,7 @@ public class BookingDao {
 
     public CarBooking[] findAll() {
         CarBooking[] tempBookings = new CarBooking[bookingCount];
-        for(int i = 0; i < bookingCount; i++){
+        for (int i = 0; i < bookingCount; i++) {
             tempBookings[i] = bookings[i];
         }
         return tempBookings;

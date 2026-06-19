@@ -1,4 +1,4 @@
-package com.amigos.user;
+package com.sumen.user;
 
 import java.util.UUID;
 

@@ -1,11 +1,13 @@
-package com.amigos.car;
+package com.sumen.car;
 
 
-import com.amigos.booking.BookingDao;
-import com.amigos.booking.BookingStatus;
-import com.amigos.booking.CarBooking;
+import com.sumen.booking.BookingDao;
+import com.sumen.booking.BookingStatus;
+import com.sumen.booking.CarBooking;
+import com.sumen.exception.CarNotFoundException;
 
 import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.UUID;
 
 public class CarService {
@@ -22,40 +24,37 @@ public class CarService {
         return carDao.findById(carIdAsUUID);
     }
 
-    public Car[] findCarsByType(String carType){
+    public Car[] findCarsByType(String carType) {
         Car[] electricCars = new Car[50];
         Car[] nonElectricCars = new Car[50];
         int count = 0;
         int nonEletricCarCount = 0;
-        for (Car car : carDao.findAll()){
-            if(car == null){
+        for (Car car : carDao.findAll()) {
+            if (car == null) {
                 continue;
             }
-            if (Boolean.TRUE.equals(car.getElectric())){
+            if (Boolean.TRUE.equals(car.getElectric())) {
                 electricCars[count++] = car;
-            }else {
+            } else {
                 nonElectricCars[nonEletricCarCount++] = car;
             }
         }
-        if("ELECTRIC".equals(carType)){
+        if ("ELECTRIC".equals(carType)) {
             return electricCars;
-        }else if("NON_ELECTRIC".equals(carType)){
+        } else if ("NON_ELECTRIC".equals(carType)) {
             return nonElectricCars;
         }
         return null;
     }
 
-    public void showAvailableCars(LocalDate startDate, LocalDate endDate, boolean isElectric){
+    public Car[] findAvailableCars(LocalDate startDate, LocalDate endDate, boolean isElectric) {
         Car[] cars = carDao.findAll();
         int count = carDao.getCarCount();
+        int tempCount = 0;
+        Car[] tempCars = new Car[count];
         boolean availableCarFound = false;
-        if(isElectric){
-            System.out.println("============================ Available Electric  Cars: ======================================");
-        } else {
-            System.out.println("============================ Available All Cars: ============================================");
-        }
-        for(Car car : cars){
-            if(car == null){
+        for (Car car : cars) {
+            if (car == null) {
                 continue;
             }
 
@@ -65,22 +64,15 @@ public class CarService {
 
             boolean isAvailable = isCarAvailable(car, startDate, endDate);
 
-            if(isAvailable){
+            if (isAvailable) {
                 availableCarFound = true;
-                System.out.printf(
-                        "Car Id :: %s\tBrand :: %s\tRegistration No :: %s\tElectric :: %s\tPrice Per Day :: %s%n",
-                        car.getId(),
-                        car.getBrand(),
-                        car.getRegNumber(),
-                        car.getElectric(),
-                        car.getRentalPricePerDay()
-                );
+                tempCars[tempCount++] = car;
             }
         }
-        if (!availableCarFound){
-            System.out.println("No cars available for the selected dates.");
+        if (!availableCarFound) {
+            throw new CarNotFoundException("No cars available for the selected dates.");
         }
-        System.out.println("====================================================================================");
+        return Arrays.copyOf(tempCars, tempCount);
     }
 
     private boolean isCarAvailable(Car car, LocalDate requestedStartDate, LocalDate requestedEndDate) {
@@ -106,7 +98,7 @@ public class CarService {
         return true;
     }
 
-    public void updateCarInventory(){
+    public void updateCarInventory() {
         carDao.loadCars();
     }
 }
