@@ -13,6 +13,7 @@ import com.sumen.user.UserService;
 
 import java.time.LocalDate;
 import java.util.Scanner;
+import java.util.UUID;
 
 
 public class BookingHandler {
@@ -30,20 +31,25 @@ public class BookingHandler {
         System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++");
         viewAllUsers();
         System.out.println("Enter User Id :: ");
-        String userId = scanner.nextLine();
-
-        do{
-            startDate = dateUtility.readDate("Enter Start Date (yyyy-MM-dd) ::");
-            endDate = dateUtility.readDate("Enter End Date (yyyy-MM-dd) ::");
-            validDate = dateUtility.validateDate(startDate, endDate);
-        }while (!validDate);
-
-        showAllAvailableCars(startDate, endDate, false);
-        System.out.println("Enter Car Id :: ");
-        String carId = scanner.nextLine();
+        UUID userId = UUID.fromString(scanner.nextLine());
         try {
-            carBooking = bookingService.addBooking(userId, carId, startDate, endDate);
-        } catch (UserNotFoundException | CarNotFoundException e) {
+            User user = userService.findUserById(userId);
+            do{
+                startDate = dateUtility.readDate("Enter Start Date (yyyy-MM-dd) ::");
+                endDate = dateUtility.readDate("Enter End Date (yyyy-MM-dd) ::");
+                validDate = dateUtility.validateDate(startDate, endDate);
+            }while (!validDate);
+            showAllAvailableCars(startDate, endDate, false);
+            System.out.println("Enter Car Id :: ");
+            UUID carId = UUID.fromString(scanner.nextLine());
+            Car car = carService.findCarById(carId);
+            carBooking = bookingService.addBooking(user, car, startDate, endDate);
+        } catch (UserNotFoundException e) {
+            System.out.println("Booking failed :: " + e.getMessage());
+            System.out.println("Please try again");
+            System.out.println("**************************************************************************************");
+            return;
+        } catch (CarNotFoundException e) {
             System.out.println("Booking failed :: " + e.getMessage());
             System.out.println("Please try again");
             System.out.println("**************************************************************************************");
@@ -61,23 +67,28 @@ public class BookingHandler {
     }
 
     public void deleteBooking(){
+        System.out.println("============================== Delete Booking ==============================");
         System.out.println("Enter Booking Id :: ");
         String bookingId =  scanner.nextLine();
         try{
-            bookingService.deleteCarBooking(bookingId);
+            bookingService.cancelBooking(UUID.fromString(bookingId));
             System.out.printf("Booking %s is Cancelled Successfully :: ", bookingId);
         }catch(BookingNotFoundException e){
             System.out.println(e.getMessage());
+        }catch (IllegalArgumentException e){
+            System.out.println(e.getMessage());
         }
+        System.out.println("============================================================================");
     }
 
     public void viewAllBookingsByUserId(){
 
         System.out.println("Enter User Id ::");
         String userId = scanner.nextLine();
-        String userName = userService.findUserById(userId).getName();
+
         try{
-            CarBooking[] bookings = bookingService.viewAllBookingsByUserId(userId);
+            String userName = userService.findUserById(UUID.fromString(userId)).getName();
+            CarBooking[] bookings = bookingService.getAllActiveBookingsByUserId(UUID.fromString(userId));
             System.out.println("============================== Bookings by User ( " + userName +" ) ==============================");
             for (CarBooking booking : bookings) {
                 if (booking == null){
@@ -91,6 +102,8 @@ public class BookingHandler {
             }
         }catch(UserNotFoundException e){
             System.out.println("*********************** " + e.getMessage() + " ***********************************************************");
+        }catch (BookingNotFoundException e){
+            System.out.println("*********************** " + e.getMessage() + " ***********************************************************");
         }
 
         System.out.println("====================================================================================================");
@@ -99,7 +112,7 @@ public class BookingHandler {
     public void viewAllBookings(){
         System.out.println("============================== All Bookings ==============================");
         try {
-            CarBooking[] bookings = bookingService.viewAllBookings();
+            CarBooking[] bookings = bookingService.getAllBookings();
             for (CarBooking booking : bookings) {
                 if (booking == null){
                     continue;
@@ -126,7 +139,7 @@ public class BookingHandler {
     private void viewAllUsers(){
         System.out.println("============================== All Users ==============================");
         try {
-            User[] users = userService.findAllUsers();
+            User[] users = userService.getAllUsers();
             for (User user : users) {
                 if (user == null){
                     continue;
@@ -143,7 +156,7 @@ public class BookingHandler {
     private void showAllAvailableCars(LocalDate startDate, LocalDate endDate, boolean isElectric){
         System.out.println("============================ Available All Cars: ============================================");
         try{
-            Car[] tempCars = carService.findAvailableCars(startDate, endDate, isElectric);
+            Car[] tempCars = carService.getAvailableCars(startDate, endDate, isElectric);
             System.out.println("No of Available Cars :: " + tempCars.length);
             for(int i = 0; i < tempCars.length; i++){
                 Car car = tempCars[i];

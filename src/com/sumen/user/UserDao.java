@@ -1,14 +1,12 @@
 package com.sumen.user;
 
+import java.util.Arrays;
+import java.util.Optional;
 import java.util.UUID;
 
 public class UserDao {
     private static final User[] users = new User[50];
     private static int userCount = 0;
-
-    public UserDao() {
-        System.out.println("User Dao is created");
-    }
 
     public UUID save(User user) {
         users[userCount++] = user;
@@ -16,41 +14,29 @@ public class UserDao {
     }
 
 
-    public User findById(UUID userId) {
+    public Optional<User> findById(UUID userId) {
         for (int i = 0; i < userCount; i++) {
             if (users[i].getId().equals(userId)) {
-                return users[i];
+                return Optional.of(users[i]);
             }
         }
-        return null;
+        return Optional.empty();
     }
 
-    public User findByName(String userName) {
-        if (userName == null || userName.isEmpty()) {
-            System.out.println("Invalid User Name");
-            return null;
-        }
+    public Optional<User> findByName(String userName) {
         for (int i = 0; i < userCount; i++) {
             if (users[i].getName().equalsIgnoreCase(userName)) {
-                return users[i];
+                return Optional.of(users[i]);
             }
         }
-        return null;
+        return Optional.empty();
     }
 
-    public int getUserCount() {
-        return userCount;
+    public User[] findAllUsers() {
+        return Arrays.copyOf(users, userCount);
     }
 
-    public User[] getUsers() {
-        User[] tempUsers = new User[userCount];
-        for (int i = 0; i < userCount; i++) {
-            tempUsers[i] = users[i];
-        }
-        return tempUsers;
-    }
-
-    public static void addUsers() {
+    public static void initializeUsers() {
         users[userCount++] = new User("Ricardo");
         users[userCount++] = new User("Jamila");
         users[userCount++] = new User("Jose");

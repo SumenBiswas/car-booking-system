@@ -1,35 +1,32 @@
 package com.sumen.booking;
 
+import java.util.Arrays;
+import java.util.Optional;
 import java.util.UUID;
 
 public class BookingDao {
-    private static final CarBooking[] bookings = new CarBooking[100];
+    private static CarBooking[] bookings = new CarBooking[100];
     private static int bookingCount = 0;
 
-    public BookingDao() {
-        System.out.println("Booking Dao is created");
-    }
-
     public void save(CarBooking booking) {
+        if (bookingCount == bookings.length) {
+            bookings = Arrays.copyOf(bookings, bookingCount * 2);
+        }
         bookings[bookingCount++] = booking;
     }
 
-    public CarBooking findById(UUID bookingId) {
+    public Optional<CarBooking> findById(UUID bookingId) {
         for (int i = 0; i < bookingCount; i++) {
             if (bookings[i].getId().equals(bookingId)) {
-                return bookings[i];
+                return Optional.of(bookings[i]);
             }
         }
-        return null;
+        return Optional.empty();
     }
 
 
-    public CarBooking[] findAll() {
-        CarBooking[] tempBookings = new CarBooking[bookingCount];
-        for (int i = 0; i < bookingCount; i++) {
-            tempBookings[i] = bookings[i];
-        }
-        return tempBookings;
+    public CarBooking[] findAllBookings() {
+        return Arrays.copyOf(bookings, bookingCount);
     }
 
     public int getBookingCount() {

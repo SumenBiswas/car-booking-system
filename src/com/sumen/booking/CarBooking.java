@@ -9,19 +9,17 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 public class CarBooking {
-    private UUID id;
-    private Boolean isElectric;
-    private User user;
-    private Car car;
-    private LocalDate startDate;
-    private LocalDate endDate;
-    private BigDecimal price;
+    private final UUID id;
+    private final User user;
+    private final Car car;
+    private final LocalDate startDate;
+    private final LocalDate endDate;
+    private final BigDecimal price;
     private BookingStatus bookingStatus;
-    private LocalDateTime bookedAt;
+    private final LocalDateTime bookedAt;
 
     public CarBooking(User user, Car car, LocalDate startDate, LocalDate endDate, BigDecimal price) {
         this.id = UUID.randomUUID();
-        this.isElectric = car.getElectric();
         this.user = user;
         this.car = car;
         this.startDate = startDate;
@@ -33,10 +31,6 @@ public class CarBooking {
 
     public UUID getId() {
         return id;
-    }
-
-    public Boolean getElectric() {
-        return isElectric;
     }
 
     public User getUser() {
@@ -63,10 +57,6 @@ public class CarBooking {
         return bookingStatus;
     }
 
-    public LocalDateTime getBookedAt() {
-        return bookedAt;
-    }
-
     public void setBookingStatus(BookingStatus bookingStatus) {
         this.bookingStatus = bookingStatus;
     }
@@ -75,7 +65,6 @@ public class CarBooking {
     public String toString() {
         return "CarBooking{" +
                 "id=" + id +
-                ", isElectric=" + isElectric +
                 ", user=" + user +
                 ", car=" + car +
                 ", startDate=" + startDate +

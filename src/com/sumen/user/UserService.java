@@ -1,7 +1,7 @@
 package com.sumen.user;
 
+import com.sumen.Util.StringUtils;
 import com.sumen.exception.UserNotFoundException;
-
 import java.util.UUID;
 
 
@@ -12,55 +12,33 @@ public class UserService {
         userDao = new UserDao();
     }
 
-    public User[] findAllUsers() {
-        User[] users = userDao.getUsers();
-        User[] tempUsers = new User[userDao.getUserCount()];
-
-
-        if (tempUsers.length == 0) {
-           throw new UserNotFoundException("No Users Found");
-        }
-        for (int i = 0; i < userDao.getUserCount(); i++) {
-            tempUsers[i] = users[i];
-        }
-        return tempUsers;
-
-
-    }
+    public User[] getAllUsers() {
+        return userDao.findAllUsers();
+       }
 
     public UUID addUser(String userName) {
-        if (userName == null || userName.isEmpty()) {
-            System.out.println("Invalid User Name");
-            return null;
+        if (StringUtils.isNullOrBlank(userName)) {
+            throw new IllegalArgumentException("User Name cannot be null or blank");
         }
-        UUID userId = userDao.save(new User(userName));
-        System.out.println("User added :: " + userId.toString());
-        return userId;
-    }
-
-    public User findUserById(String uid) {
-        try {
-            return userDao.findById(UUID.fromString(uid));
-        } catch (IllegalArgumentException e) {
-            System.out.println("Invalid User Id :: " + uid);
-            return null;
-        }
+        return userDao.save(new User(userName));
     }
 
     public User findUserById(UUID uid) {
-        try {
-            return userDao.findById(uid);
-        } catch (IllegalArgumentException e) {
-            System.out.println("Invalid User Id :: " + uid);
-            return null;
-        }
+        return userDao.findById(uid)
+                .orElseThrow(
+                        () -> new UserNotFoundException("User not found for this User Id :: %s".formatted(uid.toString())));
     }
 
     public User findUserByName(String userName) {
-        return userDao.findByName(userName);
+        if (StringUtils.isNullOrBlank(userName)) {
+            throw new IllegalArgumentException("User Name cannot be null or blank");
+        }
+        return userDao.findByName(userName)
+                .orElseThrow(
+                        () -> new UserNotFoundException("User not found for this User Name :: %s".formatted(userName)));
     }
 
     public void addUsers(){
-        UserDao.addUsers();
+        UserDao.initializeUsers();
     }
 }

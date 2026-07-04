@@ -1,6 +1,5 @@
 package com.sumen.presentation;
 
-import com.sumen.exception.UserNotFoundException;
 import com.sumen.user.User;
 import com.sumen.user.UserService;
 
@@ -9,14 +8,15 @@ public class UserHandler {
 
     public void showAllUsers() {
         System.out.println("************************* USER LIST *******************************");
-        try{
-            for (User user : userService.findAllUsers()){
-                System.out.printf("Name :: %s \t\t Id :: %s", user.getName(), user.getId());
-                System.out.println(" ");
+            User[] users = userService.getAllUsers();
+            if (users.length == 0){
+                System.out.println("No Users Found");
+            }else {
+                for (User user : users){
+                    System.out.printf("Name :: %s \t\t Id :: %s", user.getName(), user.getId());
+                    System.out.println(" ");
+                }
             }
-        }catch (UserNotFoundException e){
-            System.out.println("*********************** " + e.getMessage() + " ***********************************************************");
-        }
-        System.out.println("*******************************************************************");
+       System.out.println("*******************************************************************");
     }
 }

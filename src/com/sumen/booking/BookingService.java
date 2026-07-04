@@ -1,34 +1,21 @@
 package com.sumen.booking;
 
-import com.sumen.Util.DateUtility;
-import com.sumen.car.CarService;
 import com.sumen.car.Car;
 import com.sumen.exception.BookingNotFoundException;
-import com.sumen.exception.CarNotFoundException;
-import com.sumen.exception.UserNotFoundException;
 import com.sumen.user.User;
 import com.sumen.user.UserService;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.Arrays;
 import java.util.UUID;
 
 public class BookingService {
     private final UserService userService = new UserService();
     private final BookingDao bookingDao = new BookingDao();
-    private final CarService carService = new CarService();
-    private final DateUtility dateUtility = new DateUtility();
 
-    public CarBooking addBooking(String userId, String carId, LocalDate startDate, LocalDate endDate) {
-        User user = userService.findUserById(userId);
-        if (user == null) {
-            throw new UserNotFoundException("User not found for this User Id :: " + userId);
-        }
-        Car car = carService.findCarById(carId);
-        if (car == null) {
-            throw new CarNotFoundException("Car not found for this Car Id :: " + carId);
-        }
+    public CarBooking addBooking(User user, Car car, LocalDate startDate, LocalDate endDate) {
         long totalDays = ChronoUnit.DAYS.between(startDate, endDate);
         totalDays = (totalDays == 0) ? 1 : totalDays;
         BigDecimal totalPrice = car.getRentalPricePerDay().multiply(BigDecimal.valueOf(totalDays));
@@ -39,89 +26,47 @@ public class BookingService {
 
 
 
-    public void deleteCarBooking(String bookingId) {
-        boolean isCarAvailable = false;
-        CarBooking[] bookings = bookingDao.findAll();
-        int bookingCount = bookingDao.getBookingCount();
-        for (int i = 0; i < bookingCount; i++) {
-            if (bookings[i].getId().equals(UUID.fromString(bookingId))) {
-                bookings[i].setBookingStatus(BookingStatus.CANCELLED);
-                isCarAvailable = true;
-                break;
-            }
+    public void cancelBooking(UUID bookingId) {
+        CarBooking booking = bookingDao.findById(bookingId).orElseThrow(
+                () -> new BookingNotFoundException("Booking not found for this booking Id :: %s".formatted(bookingId)));
+        if(booking.getBookingStatus() == BookingStatus.CANCELLED){
+            throw new IllegalStateException("Booking is already cancelled");
         }
-        if (!isCarAvailable) {
-            throw new CarNotFoundException("Car Booking not found for this Booking Id :: " + bookingId);
-        }
-
+        booking.setBookingStatus(BookingStatus.CANCELLED);
     }
 
-    public void viewAllBookedCars() {
-        boolean carBookedFound = false;
-        int bookingCount = bookingDao.getBookingCount();
-        CarBooking[] bookings = bookingDao.findAll();
-        System.out.println("================================== Booked cars ===================================");
-        for (int i = 0; i < bookingCount; i++) {
-            CarBooking booking = bookings[i];
+    public CarBooking[] getAllBookings() {
+        CarBooking[] bookings = bookingDao.findAllBookings();
+        CarBooking[] tempBookings = new CarBooking[bookings.length];
+        int tempCount = 0;
+        for (CarBooking booking : bookings) {
             if(booking != null && booking.getBookingStatus() == BookingStatus.ACTIVE){
-                Car car = booking.getCar();
-                System.out.printf("Booking Id: %s | Car: %s | Brand: %s | Status: %s%n | Start date: %s | End date: %s", booking.getId().toString(),
-                        car.getRegNumber(), car.getBrand(), booking.getBookingStatus(), booking.getStartDate(), booking.getEndDate());
-                carBookedFound = true;
+                tempBookings[tempCount++] = booking;
             }
         }
-
-        if(!carBookedFound) {
-            System.out.println("-------- No Books Car Found ---------------");
-        }
-        System.out.println("======================================================================================");
+        return Arrays.copyOf(tempBookings, tempCount);
     }
 
+    public CarBooking[] getAllActiveBookingsByUserId(UUID userId){
+        userService.findUserById(userId);
 
-    public CarBooking[] viewAllBookings() {
+        CarBooking[] bookings = bookingDao.findAllBookings();
+        CarBooking[] bookingsByUserId = new CarBooking[bookings.length];
 
-        boolean bookingFound = false;
-        int bookingCount = bookingDao.getBookingCount();
-        CarBooking[] bookings = bookingDao.findAll();
-        CarBooking[] tempBookings = new CarBooking[bookingCount];
+        int count = 0;
 
-        for (int i = 0; i < bookingCount; i++) {
-            CarBooking booking = bookings[i];
-            if (booking == null || booking.getBookingStatus() != BookingStatus.ACTIVE) {
-                continue;
-            }
-            bookingFound = true;
-            tempBookings[i] = booking;
-        }
-
-        if (!bookingFound) {
-            throw new BookingNotFoundException("Booking not found");
-        }
-        return tempBookings;
-    }
-
-    public int getBookingCount(){
-        return bookingDao.getBookingCount();
-    }
-
-    public CarBooking[] viewAllBookingsByUserId(String userId){
-        UUID userUUID = UUID.fromString(userId);
-        CarBooking[] bookings = bookingDao.findAll();
-        int bookingCount = bookingDao.getBookingCount();
-        CarBooking[] bookingsByUserId = new CarBooking[50];
-        User user = userService.findUserById(userId);
-        if(user == null){
-            throw new UserNotFoundException("User not found for this User Id :: " + userId);
-        }
-        String userName = userService.findUserById(userId).getName();
-        for (int i = 0; i < bookingCount; i++) {
-            CarBooking booking = bookings[i];
-
-            if(booking.getUser().getId().equals(userUUID) && booking.getBookingStatus() == BookingStatus.ACTIVE){
-                bookingsByUserId[i] = booking;
+        for (CarBooking booking : bookings) {
+            if (isActiveBookingForUser(booking, userId)) {
+                bookingsByUserId[count++] = booking;
             }
         }
-        return bookingsByUserId;
+        return Arrays.copyOf(bookingsByUserId, count);
+    }
+
+    private boolean isActiveBookingForUser(CarBooking booking, UUID userId){
+        return booking!=null
+                && booking.getBookingStatus() == BookingStatus.ACTIVE
+                && booking.getUser().getId().equals(userId);
     }
 
 

@@ -15,39 +15,17 @@ public class CarService {
     private final BookingDao bookingDao;
 
     public CarService() {
-        carDao = new CarDao();
-        bookingDao = new BookingDao();
+        this.carDao = new CarDao();
+        this.bookingDao = new BookingDao();
     }
 
-    public Car findCarById(String carId) {
-        UUID carIdAsUUID = UUID.fromString(carId);
-        return carDao.findById(carIdAsUUID);
+    public Car findCarById(UUID carId) {
+        return carDao.findById(carId).
+                orElseThrow(
+                        () -> new CarNotFoundException("Car not found for this car Id :: %s".formatted(carId)));
     }
 
-    public Car[] findCarsByType(String carType) {
-        Car[] electricCars = new Car[50];
-        Car[] nonElectricCars = new Car[50];
-        int count = 0;
-        int nonEletricCarCount = 0;
-        for (Car car : carDao.findAll()) {
-            if (car == null) {
-                continue;
-            }
-            if (Boolean.TRUE.equals(car.getElectric())) {
-                electricCars[count++] = car;
-            } else {
-                nonElectricCars[nonEletricCarCount++] = car;
-            }
-        }
-        if ("ELECTRIC".equals(carType)) {
-            return electricCars;
-        } else if ("NON_ELECTRIC".equals(carType)) {
-            return nonElectricCars;
-        }
-        return null;
-    }
-
-    public Car[] findAvailableCars(LocalDate startDate, LocalDate endDate, boolean isElectric) {
+    public Car[] getAvailableCars(LocalDate startDate, LocalDate endDate, boolean isElectric) {
         Car[] cars = carDao.findAll();
         int count = carDao.getCarCount();
         int tempCount = 0;
@@ -70,13 +48,13 @@ public class CarService {
             }
         }
         if (!availableCarFound) {
-            throw new CarNotFoundException("No cars available for the selected dates.");
+            return new Car[]{};
         }
         return Arrays.copyOf(tempCars, tempCount);
     }
 
     private boolean isCarAvailable(Car car, LocalDate requestedStartDate, LocalDate requestedEndDate) {
-        CarBooking[] bookings = bookingDao.findAll();
+        CarBooking[] bookings = bookingDao.findAllBookings();
 
         for (int i = 0; i < bookingDao.getBookingCount(); i++) {
             CarBooking booking = bookings[i];
@@ -98,7 +76,7 @@ public class CarService {
         return true;
     }
 
-    public void updateCarInventory() {
+    public void loadCarInventory() {
         carDao.loadCars();
     }
 }

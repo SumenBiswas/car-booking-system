@@ -10,7 +10,7 @@ public class Main {
         try {
             CarService carService = new CarService();
             UserService userService = new UserService();
-            carService.updateCarInventory();
+            carService.loadCarInventory();
             userService.addUsers();
             menuHandler.runMenu();
         } catch (InterruptedException e) {

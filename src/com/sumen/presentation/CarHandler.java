@@ -11,8 +11,7 @@ public class CarHandler {
     private final DateUtility dateUtility = new DateUtility();
     private final CarService carService = new CarService();
     public void showAvailableCars(boolean isElectric) {
-        LocalDate startDate = null;
-        LocalDate endDate = null;
+        LocalDate startDate, endDate;
         boolean validDate = false;
 
         System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++");
@@ -27,9 +26,8 @@ public class CarHandler {
             System.out.println("============================ Available All Cars: ============================================");
         }
         try{
-            Car[] tempCars = carService.findAvailableCars(startDate, endDate, isElectric);
-            for(int i = 0; i < tempCars.length; i++){
-                Car car = tempCars[i];
+            Car[] tempCars = carService.getAvailableCars(startDate, endDate, isElectric);
+            for (Car car : tempCars) {
                 System.out.printf(
                         "Car Id :: %s\tBrand :: %s\tRegistration No :: %s\tElectric :: %s\tPrice Per Day :: %s%n",
                         car.getId(),
