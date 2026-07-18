@@ -4,20 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52face91-7615-4fc2-87b8-93e6bc2faab9" name="Changes" comment="Core Java First Phase Project." />
+    <list default="true" id="52face91-7615-4fc2-87b8-93e6bc2faab9" name="Changes" comment="Initial Commit: Removed unused code and updated code.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="19" />
+    <option name="cachedIndexableFilesCount" value="24" />
+    <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -45,7 +48,13 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/Main.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/com/amigos/booking/BookingDao.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/com/amigos/car/Car.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/com/amigos/car/CarDao.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/com/amigos/car/CarService.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/com/amigos/menu/MenuHandler.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/com/amigos/user/User.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/com/amigos/user/UserDao.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="McpProjectServerCommands">
     <commands />
@@ -53,62 +62,65 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.2736500969830142" />
-      <entry key="MS500" value="3.0837496869482535" />
-      <entry key="S2" value="6.320703271536266" />
-      <entry key="S5" value="7.781497675295085" />
-      <entry key="S10" value="9.117772579562534" />
-      <entry key="S30" value="20.76099882785698" />
-      <entry key="S60" value="41.59962420899854" />
-      <entry key="M2" value="82.47908331840686" />
-      <entry key="M5" value="179.0139763420999" />
-      <entry key="M10" value="264.3179440202978" />
-      <entry key="M15" value="307.807882977013" />
-      <entry key="M30" value="363.25372404901236" />
-      <entry key="H1" value="396.7534956060207" />
-      <entry key="H2" value="415.2345437080262" />
-      <entry key="H4" value="424.9501180135986" />
-      <entry key="D1" value="433.3012186420048" />
-      <entry key="W1" value="434.7567262621807" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0001299280097828" />
+      <entry key="S2" value="1.1085667898585259" />
+      <entry key="S5" value="1.5360304739865471" />
+      <entry key="S10" value="2.359139136696111" />
+      <entry key="S30" value="4.466440944630801" />
+      <entry key="S60" value="5.789161541841417" />
+      <entry key="M2" value="7.144956328273346" />
+      <entry key="M5" value="9.614841751067193" />
+      <entry key="M10" value="12.483093778711876" />
+      <entry key="M15" value="14.708260559402147" />
+      <entry key="M30" value="19.485293857510335" />
+      <entry key="H1" value="27.344724411135545" />
+      <entry key="H2" value="49.17629452731217" />
+      <entry key="H4" value="122.5593576894215" />
+      <entry key="D1" value="576.469927271315" />
+      <entry key="W1" value="806.3109696377255" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="4.143009193348445E-74" />
-      <entry key="S2" value="4.511583236296376E-19" />
-      <entry key="S5" value="4.589530097287065E-8" />
-      <entry key="S10" value="2.1619035772729264E-4" />
-      <entry key="S30" value="0.0723656299100325" />
-      <entry key="S60" value="0.3567196883060424" />
-      <entry key="M2" value="0.8421020965889285" />
-      <entry key="M5" value="1.5756431196324023" />
-      <entry key="M10" value="2.0911927874567953" />
-      <entry key="M15" value="2.3346871626957966" />
-      <entry key="M30" value="2.63216618828257" />
-      <entry key="H1" value="2.8060738614031835" />
-      <entry key="H2" value="2.9003631877003717" />
-      <entry key="H4" value="2.949490368998572" />
-      <entry key="D1" value="2.9914837236194836" />
-      <entry key="W1" value="2.9987809624205197" />
+      <entry key="MS500" value="5.5876729872414745E-80" />
+      <entry key="S2" value="1.5374738767045513E-20" />
+      <entry key="S5" value="1.187788836486072E-8" />
+      <entry key="S10" value="1.0982428907677375E-4" />
+      <entry key="S30" value="0.06245653739559143" />
+      <entry key="S60" value="0.4247777495864205" />
+      <entry key="M2" value="1.681707556712193" />
+      <entry key="M5" value="6.123958766112847" />
+      <entry key="M10" value="10.98236304260617" />
+      <entry key="M15" value="13.942434732405232" />
+      <entry key="M30" value="18.91623567862086" />
+      <entry key="H1" value="26.394614746858625" />
+      <entry key="H2" value="45.81260998883714" />
+      <entry key="H4" value="87.78606454359075" />
+      <entry key="D1" value="222.86340894575753" />
+      <entry key="W1" value="273.20287875606186" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.2369084538317974" />
-      <entry key="MS500" value="3.0666476192234047" />
-      <entry key="S2" value="6.310766097512596" />
-      <entry key="S5" value="7.7763488520381765" />
-      <entry key="S10" value="9.11196693252989" />
-      <entry key="S30" value="20.81053733908492" />
-      <entry key="S60" value="41.92677263666277" />
-      <entry key="M2" value="83.29319767161078" />
-      <entry key="M5" value="180.5609535611542" />
-      <entry key="M10" value="266.38113976368476" />
-      <entry key="M15" value="310.11808586913395" />
-      <entry key="M30" value="365.8694955465556" />
-      <entry key="H1" value="399.5500178704744" />
-      <entry key="H2" value="418.1297436622885" />
-      <entry key="H4" value="427.896923103346" />
-      <entry key="D1" value="436.29223980864384" />
-      <entry key="W1" value="437.7554407691898" />
+      <entry key="MS100" value="0.9265880618903709" />
+      <entry key="MS500" value="0.9849954734270253" />
+      <entry key="S2" value="1.104574338485636" />
+      <entry key="S5" value="1.534136839174857" />
+      <entry key="S10" value="2.35797560696601" />
+      <entry key="S30" value="4.523711844220762" />
+      <entry key="S60" value="6.197353952095115" />
+      <entry key="M2" value="8.794505525557334" />
+      <entry key="M5" value="15.693199734838318" />
+      <entry key="M10" value="23.422738007525016" />
+      <entry key="M15" value="28.61220001970706" />
+      <entry key="M30" value="38.37168215150674" />
+      <entry key="H1" value="53.71580432031931" />
+      <entry key="H2" value="94.96705362655756" />
+      <entry key="H4" value="210.3236034909422" />
+      <entry key="D1" value="799.3235677564137" />
+      <entry key="W1" value="1079.5121162051485" />
     </decayedShown>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8,
@@ -119,34 +131,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Application.Main.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
-    "junie.onboarding.icon.badge.shown": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/user/java-space/project/car-booking-system",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "/home/user/java-space/project/car-booking-system/src/Main.java",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;#2 on initial-implementation-2&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/user/java-space/project/java-exercises&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/home/user/java-space/project/car-booking-system/src/Main.java&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -164,8 +176,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-30f59d01ecdd-37e91769500f-intellij.indexing.shared.core-IU-261.24374.151" />
-        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-IU-261.24374.151" />
+        <option value="bundled-jdk-30f59d01ecdd-37e91769500f-intellij.indexing.shared.core-IU-261.25134.95" />
+        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-IU-261.25134.95" />
       </set>
     </attachedChunks>
   </component>
@@ -182,6 +194,14 @@
       <workItem from="1779046816202" duration="1715000" />
       <workItem from="1779048585534" duration="1069000" />
       <workItem from="1780498738231" duration="1987000" />
+      <workItem from="1780683249224" duration="7669000" />
+      <workItem from="1780726128939" duration="2330000" />
+      <workItem from="1780848492801" duration="8472000" />
+      <workItem from="1780935656824" duration="4669000" />
+      <workItem from="1781020461556" duration="10673000" />
+      <workItem from="1781037379261" duration="1737000" />
+      <workItem from="1781106853760" duration="12489000" />
+      <workItem from="1781196199222" duration="787000" />
     </task>
     <task id="LOCAL-00001" summary="Core Java First Phase Project.">
       <option name="closed" value="true" />
@@ -199,7 +219,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779049036693</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Initial Commit: Removed unused code and updated code.">
+      <option name="closed" value="true" />
+      <created>1781123404691</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1781123404691</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -221,6 +249,7 @@
       <path value="$PROJECT_DIR$/../.." />
     </ignored-roots>
     <MESSAGE value="Core Java First Phase Project." />
-    <option name="LAST_COMMIT_MESSAGE" value="Core Java First Phase Project." />
+    <MESSAGE value="Initial Commit: Removed unused code and updated code." />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial Commit: Removed unused code and updated code." />
   </component>
 </project>

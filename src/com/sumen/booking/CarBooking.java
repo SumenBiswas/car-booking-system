@@ -1,0 +1,77 @@
+package com.sumen.booking;
+
+import com.sumen.car.Car;
+import com.sumen.user.User;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.UUID;
+
+public class CarBooking {
+    private final UUID id;
+    private final User user;
+    private final Car car;
+    private final LocalDate startDate;
+    private final LocalDate endDate;
+    private final BigDecimal price;
+    private BookingStatus bookingStatus;
+    private final LocalDateTime bookedAt;
+
+    public CarBooking(User user, Car car, LocalDate startDate, LocalDate endDate, BigDecimal price) {
+        this.id = UUID.randomUUID();
+        this.user = user;
+        this.car = car;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.price = price;
+        this.bookingStatus = BookingStatus.ACTIVE;
+        this.bookedAt = LocalDateTime.now();
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public Car getCar() {
+        return car;
+    }
+
+    public LocalDate getStartDate() {
+        return startDate;
+    }
+
+    public LocalDate getEndDate() {
+        return endDate;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public BookingStatus getBookingStatus() {
+        return bookingStatus;
+    }
+
+    public void setBookingStatus(BookingStatus bookingStatus) {
+        this.bookingStatus = bookingStatus;
+    }
+
+    @Override
+    public String toString() {
+        return "CarBooking{" +
+                "id=" + id +
+                ", user=" + user +
+                ", car=" + car +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                ", price=" + price +
+                ", bookingStatus=" + bookingStatus +
+                ", bookedAt=" + bookedAt +
+                '}';
+    }
+}
